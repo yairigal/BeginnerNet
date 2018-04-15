@@ -28,7 +28,6 @@ training:
 
 
 def init_network():
-    random.seed(1)
     input_weights = [[random.random() for _ in range(first_layer_neurons_number)] for _ in
                      range(input_layer_neurons_number)]
     l1_weights = [[random.random() for _ in range(second_layer_neurons_number)] for _ in

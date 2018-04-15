@@ -185,7 +185,6 @@ class NeuralNetworkMatrix:
         self.A = [0] * len(layers)
         self.deltas = [0] * (len(self.layers) - 1)
         self.learning_rate = learning_rate
-        random.seed(1)
         self.weights = []
         for i in range(len(layers) - 1):
             w = [[random.uniform(-1, 1) for _ in range(layers[i + 1])] for _ in

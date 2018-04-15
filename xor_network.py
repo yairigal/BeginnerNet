@@ -6,7 +6,7 @@ from NonMatrixArtificialNeuralNetwork import NonMatrixArtificialNeuralNetwork
 
 if __name__ == '__main__':
     # xor network
-    nn = NonMatrixArtificialNeuralNetwork([2, 2, 3, 1], lr=0.75)
+    nn = NonMatrixArtificialNeuralNetwork([2, 2,1], lr=30)
     data = {
         "inputs":
             [
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     #     y = out
     #     print("===\nexpected= {}, we got= {}".format(y, y_hat))
 
-    nn.train(data, epochs=1000)
+    nn.train(data, epochs=10000)
 
     for inp, out in inputs:
         x = inp

@@ -23,10 +23,13 @@ class NonMatrixArtificialNeuralNetwork:
         self.W = []
         self.Z = []
         self.A = []
+        self.B = [[random.uniform(-1,1) for _ in range(layers[0])]]
         for i in range(1, len(layers)):
             w = [[random.uniform(-1, 1) for _ in range(layers[i])] for _ in
                  range(layers[i - 1])]
+            b = [random.uniform(-1, 1) for _ in range(layers[i])]
             self.W.append(w)
+            self.B.append(b)
 
     def forward_prop(self, x):
         output = x
@@ -42,6 +45,7 @@ class NonMatrixArtificialNeuralNetwork:
                 summer = 0
                 for i in range(len(output)):
                     summer += output[i] * self.W[k][i][j]
+                summer += self.B[k][j]
                 current_z.append(summer)
                 summer = sigmoid(summer)
                 current_a.append(summer)
@@ -63,21 +67,24 @@ class NonMatrixArtificialNeuralNetwork:
             deltas[k] = self.calc_deltas_for_current_layer(k, deltas)
             changes[k] = self.calc_changes_for_weights(deltas, k)
 
-        return changes
+        return changes, deltas
 
     def train(self, data, epochs=500):
         i = 0
         for epoch in range(epochs):
             data = self.shuffle_data(data)
             inputs, outputs = data.values()
-            changes = []
+            w_changes = []
+            b_changes = []
             for i in range(len(inputs)):
                 x = inputs[i]
                 y = outputs[i]
-                changes.append(self.back_prop(x, y))
-            self.update_weights(changes)
+                w_chgs, b_chgs = self.back_prop(x, y)
+                w_changes.append(w_chgs)
+                b_changes.append(b_chgs)
+            self.update_weights_and_biases(w_changes, b_changes)
 
-    def update_weights(self, all_changes):
+    def update_weights_and_biases(self, w_changes, b_changes):
         # for k in range(len(self.W)):
         #     for i in range(len(self.W[k])):
         #         for j in range(len(self.W[k][i])):
@@ -85,25 +92,42 @@ class NonMatrixArtificialNeuralNetwork:
         #             for l in range(len(all_changes)):
         #                 summer += all_changes[l][k][i][j]
         #             self.W[k][i][j] -= self.lr * (summer / len(all_changes))
-        change = []
+        w_change = []
         for i in range(len(self.W)):
             change_row = []
             for j in range(len(self.W[i])):
                 change_col = []
                 for k in range(len(self.W[i][j])):
                     winter = 0
-                    for l in range(len(all_changes)):
-                        winter += (all_changes[l][i][j][k] / len(all_changes))
-                    change_col.append(winter)
+                    for l in range(len(w_changes)):
+                        winter += w_changes[l][i][j][k]
+                    change_col.append(winter / len(w_changes))
                 change_row.append(change_col)
-            change.append(change_row)
+            w_change.append(change_row)
 
+        b_change = []
+        for i in range(len(self.layers)):
+            row = []
+            for j in range(self.layers[i]):
+                winter = 0
+                for k in range(len(b_changes)):
+                    winter += b_changes[k][i][j]
+                row.append(winter / len(b_changes))
+            b_change.append(row)
+
+        # update
         for k in range(len(self.W)):
             current_w = self.W[k]
             for i in range(len(current_w)):
                 for j in range(len(current_w[i])):
-                    current_w[i][j] -= self.lr * change[k][i][j]
+                    current_w[i][j] -= self.lr * w_change[k][i][j]
             self.W[k] = current_w
+
+        for k in range(len(self.layers)):
+            current_biases = self.B[k]
+            for i in range(self.layers[k]):
+                current_biases[i] -= self.lr * b_change[k][i]
+            self.B[k] = current_biases
 
     def shuffle_data(self, data):
         inputs = data["inputs"]
@@ -119,15 +143,14 @@ class NonMatrixArtificialNeuralNetwork:
 
     def calc_deltas_for_current_layer(self, k, deltas):
         deltas_output = []
-        for j in range(self.layers[k]):
+        for i in range(self.layers[k]):
             holder = []
-            for i in range(len(deltas[k + 1])):
-                d = deltas[k + 1][i]
-                sig = dsigmoid(self.Z[k + 1][i])
-                w = self.W[k][j][i]
-                mul = d * sig * w
+            for j in range(len(deltas[k + 1])):
+                d = deltas[k + 1][j]
+                w = self.W[k][i][j]
+                mul = d * w
                 holder.append(mul)
-            deltas_output.append(sum(holder))
+            deltas_output.append(sum(holder) * dsigmoid(self.Z[k][i]))
         return deltas_output
 
     def calc_changes_for_weights(self, deltas, k):
@@ -136,8 +159,7 @@ class NonMatrixArtificialNeuralNetwork:
             new_row = []
             for j in range(len(self.W[k][i])):
                 d = deltas[k + 1][j]
-                sig = dsigmoid(self.Z[k + 1][j])
-                a = self.A[k][j]
+                a = self.A[k][i]
                 result = d * a
                 new_row.append(result)
             changes.append(new_row)

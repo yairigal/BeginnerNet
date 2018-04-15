@@ -11,7 +11,6 @@ class NeuralNetwork:
         self.learning_rate = learning_rate
         self.recent_evaluation_inputs = [0] * len(layers)
         self.deltas = [0] * len(layers)
-        random.seed(1)
         for i in range(len(layers) - 1):
             w = [[random.random() for _ in range(layers[i + 1])] for _ in
                  range(layers[i])]
