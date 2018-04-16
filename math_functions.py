@@ -18,11 +18,12 @@ def dsigmoid(x):
     return sig * (1.0 - sig)
 
 
-def ReLU(x, derivative=False):
-    if not derivative:
-        return max(0, x)
+def ReLU(x):
+    return max(0, x)
+
+
+def dReLU(x):
+    if x < 0:
+        return 0
     else:
-        if x < 0:
-            return 0
-        else:
-            return 1
+        return 1

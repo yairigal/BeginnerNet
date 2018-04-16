@@ -17,17 +17,18 @@ def printing(array):
 
 
 class NonMatrixArtificialNeuralNetwork:
-    def __init__(self, layers, lr=0.7):
+    def __init__(self, layers, activation=sigmoid, dactivation=dsigmoid):
         self.layers = layers
-        self.lr = lr
+        self.activation = activation
+        self.dactivation = dactivation
         self.W = []
         self.Z = []
         self.A = []
-        self.B = [[random.uniform(-1,1) for _ in range(layers[0])]]
+        self.B = [[1 for _ in range(layers[0])]]
         for i in range(1, len(layers)):
             w = [[random.uniform(-1, 1) for _ in range(layers[i])] for _ in
                  range(layers[i - 1])]
-            b = [random.uniform(-1, 1) for _ in range(layers[i])]
+            b = [1 for _ in range(layers[i])]
             self.W.append(w)
             self.B.append(b)
 
@@ -45,9 +46,9 @@ class NonMatrixArtificialNeuralNetwork:
                 summer = 0
                 for i in range(len(output)):
                     summer += output[i] * self.W[k][i][j]
-                summer += self.B[k][j]
+                summer += self.B[k+1][j]
                 current_z.append(summer)
-                summer = sigmoid(summer)
+                summer = self.activation(summer)
                 current_a.append(summer)
                 new_output.append(summer)
             self.Z.append(current_z)
@@ -60,17 +61,15 @@ class NonMatrixArtificialNeuralNetwork:
         cost_derivative = self.dcost(y, y_hat)
         print("cost:", sum([0.5 * (y[i] - y_hat[i]) ** 2 for i in range(len(y))]))
         deltas = [None] * len(self.layers)
-        deltas[-1] = [cost_derivative[i] * dsigmoid(self.Z[-1][i]) for i in range(len(cost_derivative))]
+        deltas[-1] = [cost_derivative[i] * self.dactivation(self.Z[-1][i]) for i in range(len(cost_derivative))]
         changes = [None] * len(self.W)
-        changes[-1] = self.calc_changes_for_weights(deltas, len(self.layers) - 2)
         for k in reversed(range(len(self.layers) - 1)):
-            deltas[k] = self.calc_deltas_for_current_layer(k, deltas)
             changes[k] = self.calc_changes_for_weights(deltas, k)
+            deltas[k] = self.calc_deltas_for_current_layer(k, deltas)
 
         return changes, deltas
 
-    def train(self, data, epochs=500):
-        i = 0
+    def train(self, data, epochs=500, lr=0.7):
         for epoch in range(epochs):
             data = self.shuffle_data(data)
             inputs, outputs = data.values()
@@ -82,9 +81,9 @@ class NonMatrixArtificialNeuralNetwork:
                 w_chgs, b_chgs = self.back_prop(x, y)
                 w_changes.append(w_chgs)
                 b_changes.append(b_chgs)
-            self.update_weights_and_biases(w_changes, b_changes)
+            self.update_weights_and_biases(w_changes, b_changes, lr)
 
-    def update_weights_and_biases(self, w_changes, b_changes):
+    def update_weights_and_biases(self, w_changes, b_changes, lr):
         # for k in range(len(self.W)):
         #     for i in range(len(self.W[k])):
         #         for j in range(len(self.W[k][i])):
@@ -120,13 +119,13 @@ class NonMatrixArtificialNeuralNetwork:
             current_w = self.W[k]
             for i in range(len(current_w)):
                 for j in range(len(current_w[i])):
-                    current_w[i][j] -= self.lr * w_change[k][i][j]
+                    current_w[i][j] -= lr * w_change[k][i][j]
             self.W[k] = current_w
 
         for k in range(len(self.layers)):
             current_biases = self.B[k]
             for i in range(self.layers[k]):
-                current_biases[i] -= self.lr * b_change[k][i]
+                current_biases[i] -= lr * b_change[k][i]
             self.B[k] = current_biases
 
     def shuffle_data(self, data):
@@ -144,13 +143,14 @@ class NonMatrixArtificialNeuralNetwork:
     def calc_deltas_for_current_layer(self, k, deltas):
         deltas_output = []
         for i in range(self.layers[k]):
-            holder = []
+            holder = 0
             for j in range(len(deltas[k + 1])):
                 d = deltas[k + 1][j]
                 w = self.W[k][i][j]
-                mul = d * w
-                holder.append(mul)
-            deltas_output.append(sum(holder) * dsigmoid(self.Z[k][i]))
+                holder += d * w
+            dsig = self.dactivation(self.Z[k][i])
+            delta = holder * dsig
+            deltas_output.append(delta)
         return deltas_output
 
     def calc_changes_for_weights(self, deltas, k):
