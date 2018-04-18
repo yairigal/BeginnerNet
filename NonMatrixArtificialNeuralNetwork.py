@@ -1,19 +1,7 @@
 import random
 
+from pickle import dump, load
 from math_functions import sigmoid, dsigmoid
-
-
-def printing(array):
-    """
-    Pretty print matrix
-    """
-    n, m = len(array), len(array[0])
-    data_str = [[str(cell) for cell in row] for row in array]
-    lens = [max(map(len, col)) for col in zip(*data_str)]
-    fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
-    table = [fmt.format(*row) for row in data_str]
-    sizes = '[' + str(n) + ' x ' + str(m) + ']'
-    print('\n'.join([sizes] + table))
 
 
 class NonMatrixArtificialNeuralNetwork:
@@ -21,14 +9,16 @@ class NonMatrixArtificialNeuralNetwork:
         self.layers = layers
         self.activation = activation
         self.dactivation = dactivation
+        self.last_cost = 0
+        self.last_acc = 0
         self.W = []
         self.Z = []
         self.A = []
-        self.B = [[1 for _ in range(layers[0])]]
+        self.B = [[0 for _ in range(layers[0])]]
         for i in range(1, len(layers)):
             w = [[random.uniform(-1, 1) for _ in range(layers[i])] for _ in
                  range(layers[i - 1])]
-            b = [1 for _ in range(layers[i])]
+            b = [0 for _ in range(layers[i])]
             self.W.append(w)
             self.B.append(b)
 
@@ -40,13 +30,11 @@ class NonMatrixArtificialNeuralNetwork:
             new_output = []
             current_z = []
             current_a = []
-            # print("weight:")
-            # printing(self.W[k])
             for j in range(len(self.W[k][0])):
                 summer = 0
                 for i in range(len(output)):
                     summer += output[i] * self.W[k][i][j]
-                summer += self.B[k+1][j]
+                summer += self.B[k + 1][j]
                 current_z.append(summer)
                 summer = self.activation(summer)
                 current_a.append(summer)
@@ -59,7 +47,6 @@ class NonMatrixArtificialNeuralNetwork:
     def back_prop(self, x, y):
         y_hat = self.forward_prop(x)
         cost_derivative = self.dcost(y, y_hat)
-        print("cost:", sum([0.5 * (y[i] - y_hat[i]) ** 2 for i in range(len(y))]))
         deltas = [None] * len(self.layers)
         deltas[-1] = [cost_derivative[i] * self.dactivation(self.Z[-1][i]) for i in range(len(cost_derivative))]
         changes = [None] * len(self.W)
@@ -67,65 +54,115 @@ class NonMatrixArtificialNeuralNetwork:
             changes[k] = self.calc_changes_for_weights(deltas, k)
             deltas[k] = self.calc_deltas_for_current_layer(k, deltas)
 
-        return changes, deltas
+        return changes, deltas, y_hat
 
-    def train(self, data, epochs=500, lr=0.7):
+    def train(self, data, epochs=500, batch_size=100, lr=0.7, test=False, test_data=[], normal_func=[], log=False,
+              save_dir=None):
         for epoch in range(epochs):
-            data = self.shuffle_data(data)
-            inputs, outputs = data.values()
-            w_changes = []
-            b_changes = []
-            for i in range(len(inputs)):
-                x = inputs[i]
-                y = outputs[i]
-                w_chgs, b_chgs = self.back_prop(x, y)
-                w_changes.append(w_chgs)
-                b_changes.append(b_chgs)
-            self.update_weights_and_biases(w_changes, b_changes, lr)
+            if log: print("epoch {}/{}".format(epoch + 1, epochs))
+            self.iterate_over_dataset(batch_size, data, log, lr)
+            if test: print("acc=", self.test(test_data, normal_func))
+            self.save(log=log, dir=save_dir)
 
-    def update_weights_and_biases(self, w_changes, b_changes, lr):
-        # for k in range(len(self.W)):
-        #     for i in range(len(self.W[k])):
-        #         for j in range(len(self.W[k][i])):
-        #             summer = 0
-        #             for l in range(len(all_changes)):
-        #                 summer += all_changes[l][k][i][j]
-        #             self.W[k][i][j] -= self.lr * (summer / len(all_changes))
-        w_change = []
+    def iterate_over_dataset(self, batch_size, data, log, lr):
+        random.shuffle(data)
+        batches = self.split_to_batches(batch_size, data)
+        for batch in batches:
+            self.run_batch(batch, batch_size, lr)
+            if log: print("cost:", self.last_cost)
+
+    def split_to_batches(self, batch_size, data):
+        return [data[i:i + batch_size] for i in range(0, len(data), batch_size)]
+
+    def run_batch(self, batch, batch_size, lr):
+        sum_w, sum_b = self.init_empty_arrays()
+        for x, y in batch:
+            w_chgs, b_chgs, y_hat = self.back_prop(x, y)
+            sum_w = self.sum_weights_changes(sum_w, w_chgs)
+            sum_b = self.sum_biases_changes(sum_b, b_chgs)
+        self.update_weights_and_biases(sum_w, sum_b, lr, batch_size)
+        self.last_cost = self.calc_cost(y, y_hat)
+
+    def calc_cost(self, y, y_hat):
+        return sum([0.5 * ((y[i] - y_hat[i]) ** 2) for i in range(len(y))])
+
+    def test(self, data, normal):
+        print("Started Testing")
+        random.shuffle(data)
+        avg = 0.0
+        size = len(data)
+        for x, y in data:
+            y_hat = self.predict(x, normalization_function=normal)
+            if y == y_hat:
+                avg += 1
+        self.last_acc = avg * 100 / size
+        return self.last_acc
+
+    def save(self, dir=None, log=False):
+        if log:
+            print("Saving...")
+        if not dir:
+            dir = "/data/data"
+        with open(dir, "wb+") as file:
+            dump(self, file)
+
+    @staticmethod
+    def load(dir=None):
+        if not dir:
+            dir = "data/data"
+        with open(dir, "rb") as file:
+            return load(file)
+
+    def sum_weights_changes(self, w1, w2):
+        assert len(w1) == len(w2)
+        for i in range(len(w1)):
+            assert len(w1[i]) == len(w2[i])
+            for j in range(len(w1[i])):
+                assert len(w1[i][j]) == len(w2[i][j])
+                for k in range(len(w1[i][j])):
+                    w1[i][j][k] += w2[i][j][k]
+        return w1
+
+    def sum_biases_changes(self, b1, b2):
+        assert len(b1) == len(b2)
+        for i in range(len(b1)):
+            assert len(b1[i]) == len(b2[i])
+            for j in range(len(b1[i])):
+                b1[i][j] += b2[i][j]
+        return b1
+
+    def init_empty_arrays(self):
+        empty = []
         for i in range(len(self.W)):
-            change_row = []
-            for j in range(len(self.W[i])):
-                change_col = []
-                for k in range(len(self.W[i][j])):
-                    winter = 0
-                    for l in range(len(w_changes)):
-                        winter += w_changes[l][i][j][k]
-                    change_col.append(winter / len(w_changes))
-                change_row.append(change_col)
-            w_change.append(change_row)
-
-        b_change = []
-        for i in range(len(self.layers)):
             row = []
-            for j in range(self.layers[i]):
-                winter = 0
-                for k in range(len(b_changes)):
-                    winter += b_changes[k][i][j]
-                row.append(winter / len(b_changes))
-            b_change.append(row)
+            for j in range(len(self.W[i])):
+                col = []
+                for k in range(len(self.W[i][j])):
+                    col.append(0)
+                row.append(col)
+            empty.append(row)
 
+        empty_b = []
+        for i in range(len(self.B)):
+            row = []
+            for j in range(len(self.B[i])):
+                row.append(0)
+            empty_b.append(row)
+        return empty, empty_b
+
+    def update_weights_and_biases(self, w_change, b_change, lr, batch_size):
         # update
         for k in range(len(self.W)):
             current_w = self.W[k]
             for i in range(len(current_w)):
                 for j in range(len(current_w[i])):
-                    current_w[i][j] -= lr * w_change[k][i][j]
+                    current_w[i][j] -= lr * (w_change[k][i][j] / batch_size)
             self.W[k] = current_w
 
         for k in range(len(self.layers)):
             current_biases = self.B[k]
             for i in range(self.layers[k]):
-                current_biases[i] -= lr * b_change[k][i]
+                current_biases[i] -= lr * (b_change[k][i] / batch_size)
             self.B[k] = current_biases
 
     def shuffle_data(self, data):
@@ -165,8 +202,11 @@ class NonMatrixArtificialNeuralNetwork:
             changes.append(new_row)
         return changes
 
-    def predict(self, x):
-        return self.forward_prop(x)
+    def predict(self, x, normalization_function=None):
+        y = self.forward_prop(x)
+        if normalization_function:
+            return normalization_function(y)
+        return y
 
 
 if __name__ == '__main__':

@@ -1,16 +1,16 @@
 from math import exp
 
 
-def activation_function(x, derivative=False):
-    if not derivative:
-        return 1.0 / (1.0 + exp(-x))
-    else:
-        a = 1.0 / (1.0 + exp(-x))
-        return a * (1 - a)
-
-
 def sigmoid(x):
-    return 1.0 / (1.0 + exp(-x))
+    try:
+        if x > 500:
+            return 1
+        if x < -500:
+            return 0
+        return 1.0 / (1.0 + exp(-x))
+    except OverflowError as e:
+        print("math error x=", x)
+        raise e
 
 
 def dsigmoid(x):
