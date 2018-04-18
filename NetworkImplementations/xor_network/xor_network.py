@@ -1,6 +1,10 @@
+import sys
+sys.path.append('../../')
+
 from NonMatrixArtificialNeuralNetwork import NonMatrixArtificialNeuralNetwork
 
 if __name__ == '__main__':
+
     # xor network
     nn = NonMatrixArtificialNeuralNetwork([2, 2, 1])
     data = [

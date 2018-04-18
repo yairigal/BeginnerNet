@@ -1,5 +1,9 @@
 import os
+import sys
 
+sys.path.append('../../')
+
+from PIL import Image
 from NonMatrixArtificialNeuralNetwork import NonMatrixArtificialNeuralNetwork
 
 training_dir = r"C:\Users\yairi\Desktop\Mnist\training"
@@ -50,5 +54,6 @@ if __name__ == '__main__':
     nn = NonMatrixArtificialNeuralNetwork([28 ** 2, 30, 10])
     training_data = preprocess_data(training_dir)
     test_data = preprocess_data(testing_dir)
-    nn.train(training_data, batch_size=100, epochs=100, lr=0.1, test=True, test_data=test_data, normal_func=normal,log=True,save_dir="./data")
+    nn.train(training_data, batch_size=100, epochs=100, lr=0.1, test=True, test_data=test_data, normal_func=normal,
+             log=True, save_dir="./data")
     print("accuracy=", nn.test(test_data, normal), "%")

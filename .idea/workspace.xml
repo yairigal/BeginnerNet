@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c95ba01-1b5a-4d6a-9c11-6f0ed1556a9b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Yair_Yigal.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/PythonToC/py2c.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Network.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/NeuralNetwork.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/NeuralNetworkMatrix.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/NonMatrixArtificialNeuralNetwork.py" afterPath="$PROJECT_DIR$/NonMatrixArtificialNeuralNetwork.py" />
-      <change beforePath="$PROJECT_DIR$/data/layers" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/data/lr" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/data/weights" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/math_functions.py" afterPath="$PROJECT_DIR$/math_functions.py" />
-      <change beforePath="$PROJECT_DIR$/xor_network.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py" afterPath="$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py" />
+      <change beforePath="$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py" afterPath="$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,13 +17,14 @@
     <SUITE FILE_PATH="coverage/BegginerNet$NeuralNetworkMatrix.coverage" NAME="NeuralNetworkMatrix Coverage Results" MODIFIED="1523475965903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$NeuralNetwork.coverage" NAME="NeuralNetwork Coverage Results" MODIFIED="1522782922450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$NonMatrixArtificialNeuralNetwork.coverage" NAME="NonMatrixArtificialNeuralNetwork Coverage Results" MODIFIED="1523522972978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BegginerNet$mnist__1_.coverage" NAME="mnist (1) Coverage Results" MODIFIED="1524048587680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NetworkImplementations/mnist_network" />
     <SUITE FILE_PATH="coverage/BegginerNet$math_functions.coverage" NAME="math_functions Coverage Results" MODIFIED="1523134643993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$xor.coverage" NAME="xor Coverage Results" MODIFIED="1522769644677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$Network.coverage" NAME="Network Coverage Results" MODIFIED="1522774793957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$xor_network__1_.coverage" NAME="xor_network (1) Coverage Results" MODIFIED="1524045349675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NetworkImplementations" />
-    <SUITE FILE_PATH="coverage/BegginerNet$xor_network__2_.coverage" NAME="xor_network (2) Coverage Results" MODIFIED="1524047518020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NetworkImplementations/xor_network" />
+    <SUITE FILE_PATH="coverage/BegginerNet$xor_network__2_.coverage" NAME="xor_network (2) Coverage Results" MODIFIED="1524048844160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NetworkImplementations/xor_network" />
     <SUITE FILE_PATH="coverage/BegginerNet$merge_files.coverage" NAME="merge_files Coverage Results" MODIFIED="1522612962873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BegginerNet$xor_network.coverage" NAME="xor_network Coverage Results" MODIFIED="1524044109816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BegginerNet$xor_network.coverage" NAME="xor_network Coverage Results" MODIFIED="1524049414163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NetworkImplementations/xor_network" />
     <SUITE FILE_PATH="coverage/BegginerNet$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1524043473947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$py2c.coverage" NAME="py2c Coverage Results" MODIFIED="1524043142081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BegginerNet$mnist_loader.coverage" NAME="mnist_loader Coverage Results" MODIFIED="1523984746444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -45,10 +34,11 @@
       <file leaf-file-name="NonMatrixArtificialNeuralNetwork.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NonMatrixArtificialNeuralNetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#136#7294#0" expanded="false" />
                 <element signature="e#214#731#0" expanded="false" />
                 <element signature="e#525#731#0" expanded="false" />
                 <element signature="e#529#627#0" expanded="false" />
@@ -57,12 +47,20 @@
                 <element signature="e#1007#1336#0" expanded="false" />
                 <element signature="e#1505#2006#0" expanded="false" />
                 <element signature="e#1844#1967#0" expanded="false" />
+                <element signature="e#2161#2435#0" expanded="false" />
+                <element signature="e#2201#2435#0" expanded="false" />
                 <element signature="e#2508#2717#0" expanded="false" />
                 <element signature="e#2629#2717#0" expanded="false" />
                 <element signature="e#2777#2849#0" expanded="false" />
                 <element signature="e#2907#3268#0" expanded="false" />
+                <element signature="e#2986#3149#0" expanded="false" />
                 <element signature="e#3313#3380#0" expanded="false" />
+                <element signature="e#3424#3735#0" expanded="false" />
+                <element signature="e#3559#3665#0" expanded="false" />
+                <element signature="e#3786#3943#0" expanded="false" />
+                <element signature="e#3995#4104#0" expanded="false" />
                 <element signature="e#4157#4465#0" expanded="false" />
+                <element signature="e#4228#4447#0" expanded="false" />
                 <element signature="e#4316#4447#0" expanded="false" />
                 <element signature="e#4517#4714#0" expanded="false" />
                 <element signature="e#4588#4696#0" expanded="false" />
@@ -82,6 +80,7 @@
                 <element signature="e#6785#7108#0" expanded="false" />
                 <element signature="e#6850#7085#0" expanded="false" />
                 <element signature="e#6926#7049#0" expanded="false" />
+                <element signature="e#7173#7294#0" expanded="false" />
                 <element signature="e#7328#7421#0" expanded="false" />
               </folding>
             </state>
@@ -91,13 +90,13 @@
       <file leaf-file-name="mnist.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="144">
+              <caret line="6" column="65" lean-forward="false" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#221#293#0" expanded="false" />
-                <element signature="e#342#1068#0" expanded="false" />
-                <element signature="e#1108#1283#0" expanded="false" />
+                <element signature="e#281#353#0" expanded="false" />
+                <element signature="e#402#1128#0" expanded="false" />
+                <element signature="e#1168#1343#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -106,8 +105,8 @@
       <file leaf-file-name="xor_network.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -180,9 +179,9 @@
         <option value="$PROJECT_DIR$/math_functions.py" />
         <option value="$PROJECT_DIR$/xor_network.py" />
         <option value="$PROJECT_DIR$/NetworkImplementations/xor_network.py" />
-        <option value="$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py" />
         <option value="$PROJECT_DIR$/NonMatrixArtificialNeuralNetwork.py" />
         <option value="$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py" />
+        <option value="$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py" />
       </list>
     </option>
   </component>
@@ -228,6 +227,18 @@
               <item name="BegginerNet" type="462c0819:PsiDirectoryNode" />
               <item name="NetworkImplementations" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BegginerNet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BegginerNet" type="462c0819:PsiDirectoryNode" />
+              <item name="NetworkImplementations" type="462c0819:PsiDirectoryNode" />
+              <item name="mnist_network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BegginerNet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BegginerNet" type="462c0819:PsiDirectoryNode" />
+              <item name="NetworkImplementations" type="462c0819:PsiDirectoryNode" />
+              <item name="xor_network" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -264,65 +275,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.xor_network (2)">
-    <configuration name="mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BegginerNet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\yairi\PycharmProjects\BegginerNet\NetworkImplementations\mnist_network\mnist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="py2c" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BegginerNet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\yairi\PycharmProjects\BegginerNet\PythonToC\py2c.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="xor_network (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NetworkImplementations" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BegginerNet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\yairi\PycharmProjects\BegginerNet\NetworkImplementations\xor_network\xor_network.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="xor_network (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="xor_network" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -341,39 +295,9 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="xor_network" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BegginerNet" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\yairi\PycharmProjects\BegginerNet\NetworkImplementations\xor_network\xor_network.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.xor_network" />
-      <item index="1" class="java.lang.String" itemvalue="Python.mnist" />
-      <item index="2" class="java.lang.String" itemvalue="Python.py2c" />
-      <item index="3" class="java.lang.String" itemvalue="Python.xor_network (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.xor_network (2)" />
-    </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.xor_network (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.xor_network (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.xor_network" />
-        <item index="3" class="java.lang.String" itemvalue="Python.mnist" />
-        <item index="4" class="java.lang.String" itemvalue="Python.py2c" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.xor_network" />
       </list>
     </recent_temporary>
   </component>
@@ -405,26 +329,34 @@
       <option name="project" value="LOCAL" />
       <updated>1523911445783</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="cleanups">
+      <created>1524047952976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524047952976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1614" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41579732" sideWeight="0.5046729" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5193548" sideWeight="0.49532712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51827955" sideWeight="0.49532712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15444015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15444015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48172042" sideWeight="0.49688473" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48172042" sideWeight="0.49688473" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -443,14 +375,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed math" />
     <MESSAGE value="Working !!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working !!" />
+    <MESSAGE value="cleanups" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanups" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py</url>
-          <line>9</line>
+          <line>13</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -925,10 +858,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NonMatrixArtificialNeuralNetwork.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#136#7294#0" expanded="false" />
             <element signature="e#214#731#0" expanded="false" />
             <element signature="e#525#731#0" expanded="false" />
             <element signature="e#529#627#0" expanded="false" />
@@ -937,12 +871,20 @@
             <element signature="e#1007#1336#0" expanded="false" />
             <element signature="e#1505#2006#0" expanded="false" />
             <element signature="e#1844#1967#0" expanded="false" />
+            <element signature="e#2161#2435#0" expanded="false" />
+            <element signature="e#2201#2435#0" expanded="false" />
             <element signature="e#2508#2717#0" expanded="false" />
             <element signature="e#2629#2717#0" expanded="false" />
             <element signature="e#2777#2849#0" expanded="false" />
             <element signature="e#2907#3268#0" expanded="false" />
+            <element signature="e#2986#3149#0" expanded="false" />
             <element signature="e#3313#3380#0" expanded="false" />
+            <element signature="e#3424#3735#0" expanded="false" />
+            <element signature="e#3559#3665#0" expanded="false" />
+            <element signature="e#3786#3943#0" expanded="false" />
+            <element signature="e#3995#4104#0" expanded="false" />
             <element signature="e#4157#4465#0" expanded="false" />
+            <element signature="e#4228#4447#0" expanded="false" />
             <element signature="e#4316#4447#0" expanded="false" />
             <element signature="e#4517#4714#0" expanded="false" />
             <element signature="e#4588#4696#0" expanded="false" />
@@ -962,6 +904,7 @@
             <element signature="e#6785#7108#0" expanded="false" />
             <element signature="e#6850#7085#0" expanded="false" />
             <element signature="e#6926#7049#0" expanded="false" />
+            <element signature="e#7173#7294#0" expanded="false" />
             <element signature="e#7328#7421#0" expanded="false" />
           </folding>
         </state>
@@ -969,21 +912,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NetworkImplementations/xor_network/xor_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NetworkImplementations/mnist_network/mnist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        <state relative-caret-position="144">
+          <caret line="6" column="65" lean-forward="false" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#221#293#0" expanded="false" />
-            <element signature="e#342#1068#0" expanded="false" />
-            <element signature="e#1108#1283#0" expanded="false" />
+            <element signature="e#281#353#0" expanded="false" />
+            <element signature="e#402#1128#0" expanded="false" />
+            <element signature="e#1168#1343#0" expanded="false" />
           </folding>
         </state>
       </provider>
