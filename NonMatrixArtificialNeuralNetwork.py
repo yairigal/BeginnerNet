@@ -1,6 +1,9 @@
 import random
 
 from pickle import dump, load
+
+import time
+
 from math_functions import sigmoid, dsigmoid
 
 
@@ -67,8 +70,9 @@ class NonMatrixArtificialNeuralNetwork:
     def iterate_over_dataset(self, batch_size, data, log, lr):
         random.shuffle(data)
         batches = self.split_to_batches(batch_size, data)
+        run_batch_func = self.run_batch
         for batch in batches:
-            self.run_batch(batch, batch_size, lr)
+            run_batch_func(batch, batch_size, lr)
             if log: print("cost:", self.last_cost)
 
     def split_to_batches(self, batch_size, data):
@@ -76,15 +80,19 @@ class NonMatrixArtificialNeuralNetwork:
 
     def run_batch(self, batch, batch_size, lr):
         sum_w, sum_b = self.init_empty_arrays()
+        sum_weights_func = self.sum_weights_changes
+        sum_biases_func = self.sum_biases_changes
+        back_prop = self.back_prop
         for x, y in batch:
-            w_chgs, b_chgs, y_hat = self.back_prop(x, y)
-            sum_w = self.sum_weights_changes(sum_w, w_chgs)
-            sum_b = self.sum_biases_changes(sum_b, b_chgs)
+            w_chgs, b_chgs, y_hat = back_prop(x, y)
+            sum_w = sum_weights_func(sum_w, w_chgs)
+            sum_b = sum_biases_func(sum_b, b_chgs)
         self.update_weights_and_biases(sum_w, sum_b, lr, batch_size)
         self.last_cost = self.calc_cost(y, y_hat)
 
     def calc_cost(self, y, y_hat):
-        return sum([0.5 * ((y[i] - y_hat[i]) ** 2) for i in range(len(y))])
+        return sum(map(lambda i: 0.5 * ((y[i] - y_hat[i]) ** 2), range(len(y))))
+        # return sum([0.5 * ((y[i] - y_hat[i]) ** 2) for i in range(len(y))])
 
     def test(self, data, normal):
         print("Started Testing")
@@ -99,10 +107,8 @@ class NonMatrixArtificialNeuralNetwork:
         return self.last_acc
 
     def save(self, dir=None, log=False):
-        if log:
-            print("Saving...")
-        if not dir:
-            dir = "/data/data"
+        if log: print("Saving...")
+        if not dir: dir = "/data/data"
         with open(dir, "wb+") as file:
             dump(self, file)
 
@@ -136,17 +142,13 @@ class NonMatrixArtificialNeuralNetwork:
         for i in range(len(self.W)):
             row = []
             for j in range(len(self.W[i])):
-                col = []
-                for k in range(len(self.W[i][j])):
-                    col.append(0)
+                col = [0] * len(self.W[i][j])
                 row.append(col)
             empty.append(row)
 
         empty_b = []
         for i in range(len(self.B)):
-            row = []
-            for j in range(len(self.B[i])):
-                row.append(0)
+            row = [0] * len(self.B[i])
             empty_b.append(row)
         return empty, empty_b
 
@@ -165,17 +167,9 @@ class NonMatrixArtificialNeuralNetwork:
                 current_biases[i] -= lr * (b_change[k][i] / batch_size)
             self.B[k] = current_biases
 
-    def shuffle_data(self, data):
-        inputs = data["inputs"]
-        outputs = data["outputs"]
-        combined = list(zip(inputs, outputs))
-        random.shuffle(combined)
-        inputs[:], outputs[:] = zip(*combined)
-        return {"inputs": inputs, "outputs": outputs}
-
     def dcost(self, y, y_hat):
         assert len(y) == len(y_hat)
-        return [y_hat[i] - y[i] for i in range(len(y))]
+        return list(map(lambda i: y_hat[i] - y[i], range(len(y))))
 
     def calc_deltas_for_current_layer(self, k, deltas):
         deltas_output = []
@@ -211,4 +205,7 @@ class NonMatrixArtificialNeuralNetwork:
 
 if __name__ == '__main__':
     nn = NonMatrixArtificialNeuralNetwork([2, 2, 1])
-    print("output", nn.forward_prop([1, 1]))
+    x = time.time()
+    out = nn.calc_cost([1] * 100000000, [2] * 100000000)
+    print("time", time.time() - x, "output", out)
+    # print("output", nn.forward_prop([1, 1]))
